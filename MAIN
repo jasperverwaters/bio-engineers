@@ -1,0 +1,25 @@
+package bmi2;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Main {
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		int weigth;
+		double length;
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BMI cal = new BMI();
+		
+		System.out.println("What is your length(in meters)?");
+		length = Double.parseDouble(br.readLine());
+		
+		System.out.println("What is your weigth(in kg)?");
+		weigth = Integer.parseInt(br.readLine());
+		
+	    double bmi = Math.round(cal.getBMI(length, weigth) * 100.0) / 100.0;
+		System.out.println("Uw BMI is: " + bmi);
+		String s = cal.getCategory(bmi);
+		System.out.println("U valt onder de categorie: " + s);
+	}
+}
